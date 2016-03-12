@@ -1,0 +1,11 @@
+FUNCTION TCHVI, b2, b3, b4
+;D1=RED-GR
+b100=float(b3)-float(b2)
+;D2=NIR-RED
+b200=float(b4)-float(b3)
+;(absD1+absD2)
+b300=abs(b100)+abs(b200)
+b1=(b100 gt 0 and b200 lt 0 or b100 lt 0 and b200 gt 0)*((b100+b200)/b300)+(b100 gt 0 and
+b200 gt 0 or b100 lt 0 and b200 lt 0)*((b100-b200)/b300)
+return, b1
+end
